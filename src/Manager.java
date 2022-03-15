@@ -52,11 +52,17 @@ public class Manager {
         System.out.println("Mời nhập số điện thoại muốn xóa: ");
         Scanner scanner = new Scanner(System.in);
         String number = scanner.nextLine();
+        boolean check = false;
         for (int i = 0; i < phoneBookList.size(); i++) {
             PhoneBook phoneBook = phoneBookList.get(i);
             if (number.equals(phoneBook.getPhoneNumber())){
                 phoneBookList.remove(i);
+                check = true;
+                break;
             }
+        }
+        if (!check){
+            System.out.println("Không tìm thấy số trong danh bạ");
         }
         for (PhoneBook p:phoneBookList
              ) {
